@@ -11,9 +11,14 @@ function getCurrentTime() {
   const currentDate = new Date()
 
   // get hours, minus, seconds
-  const hours = currentDate.getHours()
-  const minus = currentDate.getMinutes()
-  const seconds = currentDate.getSeconds()
+  let hours = currentDate.getHours()
+  let minus = currentDate.getMinutes()
+  let seconds = currentDate.getSeconds()
+
+  // check the seconds,minus,hours if 0~9, need like the format 00 01 02 03...
+  hours = hours < 10 ? "0"+hours : hours
+  minus = minus < 10 ? "0"+minus : minus
+  seconds = seconds < 10 ? "0"+seconds : seconds
 
   // time format
   currentTime.value = `${hours}:${minus}:${seconds}`
